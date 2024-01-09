@@ -11,4 +11,6 @@ import java.util.List;
 public interface PeopleRepositoryJDBC {
 
     List<Person> findAllByNameAndAge(String name, Integer age);
+
+    void insertIntoPerson(Person person);
 }

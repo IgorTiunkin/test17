@@ -16,10 +16,20 @@ public class PeopleRepositoryJDBCImpl implements PeopleRepositoryJDBC{
 
     @Override
     public List<Person> findAllByNameAndAge(String name, Integer age) {
-        String query1 = """
+        String query = """
                 SELECT * from person
                 WHERE name = '%s' and age = %d;
                 """.formatted(name, age);
-        return jdbcTemplate.query(query1, new BeanPropertyRowMapper<>(Person.class));
+        //not protected from sql injections
+        return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(Person.class));
+    }
+
+    @Override
+    public void insertIntoPerson(Person person) {
+        String query = """
+                INSERT INTO person (name, age)
+                values (?, ?);               
+                """;
+        jdbcTemplate.update(query, person.getName(), person.getAge());
     }
 }

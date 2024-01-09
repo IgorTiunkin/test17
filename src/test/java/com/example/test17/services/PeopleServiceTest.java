@@ -22,4 +22,11 @@ class PeopleServiceTest {
         List<Person> ivans = peopleService.findAllByNameAndAge("ivan", 10);
         System.out.println(ivans);
     }
+
+    @Test
+    void whenInsertJdbcTemplateTextBlocks_ThenOk() {
+        Person person = Person.builder()
+                .name("ivan").age(10).build();
+        peopleService.insertIntoPerson(person);
+    }
 }
