@@ -23,4 +23,8 @@ public class Person {
 
     @Column(name = "age")
     private Integer age;
+
+    public Integer calculateScore() {
+        return age*10;
+    }
 }
