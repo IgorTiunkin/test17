@@ -1,6 +1,9 @@
 package com.example.test17.instance_pattern;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -41,6 +44,7 @@ class TestInstanceOfPatternTest {
         String checkType = testInstanceOfPattern.checkType(1);
         assertEquals(numberToTest, checkType);
     }
+
 
 
 }
